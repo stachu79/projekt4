@@ -4,13 +4,13 @@ The main goal of the project was to solve machines in TryHackMe portal
 
 The machines was:
 
-[1. Psycho Break](https://tryhackme.com/room/psychobreak)
+[1. Psycho Break](https://tryhackme.com/room/psychobreak) - IP Address 10.10.137.177
 
-[2. Mustacchio](https://tryhackme.com/room/mustacchio)
+[2. Mustacchio](https://tryhackme.com/room/mustacchio) - IP Address 10.10.10.193
 
-[3. Overpass](https://tryhackme.com/room/overpass)
+[3. Overpass](https://tryhackme.com/room/overpass) - IP Address 10.10.42.81
 
-[4. 0Day](https://tryhackme.com/room/0day)
+[4. 0Day](https://tryhackme.com/room/0day) - IP Address 10.10.191.236
 
 
 ## Pentesting machine Psycho Break
@@ -93,8 +93,8 @@ Local internet access - Victim's IP Address: 10.10.137.177
 
 1.  First of all we needed to discover services at victim's machine
 
-![](https://github.com/stachu79/projekt4/blob/main/rustscan1.png)
-![](https://github.com/stachu79/projekt4/blob/main/rustscan2.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rustscan1.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rustscan2.png)
 
 2.  Detailed scan showed services on machine.
 ```
