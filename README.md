@@ -8,9 +8,9 @@ The machines was:
 
 [2. Mustacchio](https://tryhackme.com/room/mustacchio) - IP Address 10.10.10.193
 
-[3. Overpass](https://tryhackme.com/room/overpass)
+[3. Overpass](https://tryhackme.com/room/overpass) - IP Address 10.10.42.81
 
-[4. 0Day](https://tryhackme.com/room/0day)
+[4. 0Day](https://tryhackme.com/room/0day) - IP Address 10.10.191.236
 
 
 ## Pentesting machine Psycho Break
