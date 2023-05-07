@@ -188,45 +188,66 @@ I downloaded those files and in zip files were also two files
 
 I extracted zip file and tried to open file Table.jpg which caused an error, so I looked what is a file and found that JPEG file is a zip file.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/table1.png)
+
 I extracted zip file and got another two files.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/table2.png)
+
 I listened to wav file I discover that is a message in morse code
 I used a webpage to decrypt the message
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/morsecode.png)
+
 and that was a password to extract data from JPEG file, because there was used steganography to hide text file into JPEG.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/morsekey.png)
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/steghide1.png)
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/extracteddata.png)
+
 I read text file where was a credentials to log into ftp server
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ftp.png)
+
 I logged in to ftp server and found two files ```program``` and ```random.dic```
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ftp2.png)
+
 I downloaded those files and found that random.dic is a file with passwords to file called program. When I chose wrong password "program" said is Incorrect.
 So I wrote small Python script. That script opened file "random.dic", take one word form file and run file "program"
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/script.png)
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/scriptresult.png)
+
 When script was running I got one correct result, so I managed to know that user for another service is kidman and I needed to decode password.
 I checked the string of numbers in webpage and get result as on the pictures below.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/recognize1.png)
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/recognize2.png)
+
 and got password for user kidman
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/password.png)
+
 Then I tried to log in to server using ssh 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ssh1.png)
+
 and obtained user flag
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/userflag.png)
+
 also found two hidden files in kidman's home directory
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/kidman1.png)
+
 Then I tried to find commands to escalate privileges to root user using ```sudo -l``` command but user "kidman" couldn't use sudo, 
 so I checked cron table using ```cat /etc/crontab``` command.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/crontab1.png)
+
 In crontab I found one command which is non-standard and is executed with root privileges.
 That was python script which anyone can change, so I wrote payload and set up listener in my machine. 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/crontab2.png)
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/payload.png)
+
 After approx. two minutes I gained shell with root privileges and I could read root flag.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/root.png)
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rootflag.png)
+
 At the end with hint from TryHackMe I deleted ruvik account.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/defeatruvik.png)
 
