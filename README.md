@@ -116,8 +116,10 @@ PORT   STATE SERVICE REASON         VERSION
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/webpage01.png)
 
-Nothing to see here. Next step was to check HTML code. There was a comment that point to a different page.
+Nothing to see here. Next step was to check HTML code. 
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/sourcecode.png)
 
+There was a comment that point to a different page.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/sadistroom.png)
 
 This page gave us a key, which I need to go to another room.
@@ -134,6 +136,31 @@ To decode text I used Cyberchef and Atbash Cipher
 After I provided decoded text I received another webpage called map
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/map.png)
+
+The map contains the two room I already accessed, and two other.
+
+Safe Heaven
+The Abandoned Room
+#####Safe Heaven
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/safeheaven.png)
+This room contains a gallery with a few images. The source code also contain the following comment.
+
+```
+<!-- I think I'm having a terrible nightmare. Search through me and find it ... -->
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Recommendation
 
