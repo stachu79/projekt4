@@ -168,6 +168,19 @@ When I inserted name of the lighthouse I received another key which allowed me t
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/key2.png)
 
 ##### Abandoned Room
+The next room on the map is the Abandoned Room. I had to provide the Keeper Key to enter it.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/abandonedroom.png)
+
+When I clicked "Go further" I got into Laura room
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/laura.png)
+
+I checked page source, it says there is a shell on that page
+```
+<!-- There is something called "shell" on current page maybe that'll help you to get out of here !!!-->
+```
+which I prove using ```?shell=ls```
+
+
 
 
 
