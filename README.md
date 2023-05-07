@@ -140,8 +140,10 @@ After I provided decoded text I received another webpage called map
 The map contains the two room I already accessed, and two other.
 
 Safe Heaven
+
 The Abandoned Room
-#####Safe Heaven
+
+##### Safe Heaven
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/safeheaven.png)
 This room contains a gallery with a few images. The source code also contain the following comment.
 
