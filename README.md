@@ -87,25 +87,28 @@ During the process some technics were used to get finnaly root privileges. Despi
 
 #### Prerequisites for the attack
 
-Local internet access
+Local internet access - Victim's IP Address: 10.10.137.177
 
 #### Technical details (Proof of concept)
 
 1.  First of all we needed to discover services at victim's machine
 
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/01.host_discover.png)
-
-Victim's IP address: 192.168.10.108
+![](https://github.com/stachu79/projekt4/blob/main/rustscan1.png)
 
 2.  Detailed scan showed services on machine.
-
-
 ```
-nmap -sSCV -T4 -A --script=default,vuln -oA nmap_scan 192.168.10.108
+Nmap 7.93 scan initiated Sat May  6 03:53:57 2023 as: nmap -A -sC -sV -sS -oA /home/kali/Pulpit/THM/psychobreak/nmap -vvv -p 22,21,80 10.10.137.177
+Nmap scan report for 10.10.137.177
+Host is up, received echo-reply ttl 63 (0.091s latency).
+Scanned at 2023-05-06 03:53:58 EDT for 15s
 
-22/tcp   open  ssh     OpenSSH 6.6p1 Ubuntu 2ubuntu1 (Ubuntu Linux; protocol 2.0)
-5000/tcp open  http    Werkzeug httpd 0.14.1 (Python 2.7.15)
+PORT   STATE SERVICE REASON         VERSION
+21/tcp open  ftp     syn-ack ttl 63 ProFTPD 1.3.5a
+22/tcp open  ssh     syn-ack ttl 63 OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    syn-ack ttl 63 Apache httpd 2.4.18 ((Ubuntu))
 ```
+![](https://github.com/stachu79/projekt4/blob/main/rustscan2.png)
+
 
 3.  We so, that http service is running on machine. We opened the page.
     Default page:
