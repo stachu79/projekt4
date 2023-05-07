@@ -94,6 +94,7 @@ Local internet access - Victim's IP Address: 10.10.137.177
 1.  First of all we needed to discover services at victim's machine
 
 ![](https://github.com/stachu79/projekt4/blob/main/rustscan1.png)
+![](https://github.com/stachu79/projekt4/blob/main/rustscan2.png)
 
 2.  Detailed scan showed services on machine.
 ```
@@ -107,7 +108,7 @@ PORT   STATE SERVICE REASON         VERSION
 22/tcp open  ssh     syn-ack ttl 63 OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
 80/tcp open  http    syn-ack ttl 63 Apache httpd 2.4.18 ((Ubuntu))
 ```
-![](https://github.com/stachu79/projekt4/blob/main/rustscan2.png)
+
 
 
 3.  We so, that http service is running on machine. We opened the page.
