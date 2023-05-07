@@ -151,6 +151,24 @@ This room contains a gallery with a few images. The source code also contain the
 <!-- I think I'm having a terrible nightmare. Search through me and find it ... -->
 ```
 
+I launched GoBuster through ```/SafeHeaven/``` folder
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/gobuster2.png)
+
+and after awhile I receive ```/keeper``` folder.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/keeper.png)
+
+I clicked on the Escape button. Which took me to a page that shows some stairs and gave me 1m 45s to find where the image was taken.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/escape.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/googleit.png)
+
+I found picture in Google 
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/lighthouse.png)
+
+When I inserted name of the lighthouse I received another key which allowed me to go further.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/key2.png)
+
+##### Abandoned Room
+
 
 
 
