@@ -113,24 +113,31 @@ PORT   STATE SERVICE REASON         VERSION
 
 We so, that http service is running on machine. We opened the page.
 Default page:
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/webpage01.png)
 
 Nothing to see here. Next step was to check HTML code. 
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/sourcecode.png)
 
 There was a comment that point to a different page.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/sadistroom.png)
 
 This page gave us a key, which I need to go to another room.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/key1.png)
 
 In the locker room, I have another link to the map. This time it’s a php file. There was an encoded text that I needed to decode to access the map. 
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/lockerroom.png)
 
 To decode text I used Cyberchef and Atbash Cipher
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/cyberchef.png)
 
 After I provided decoded text I received another webpage called map
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/map.png)
 
 The map contains the two room I already accessed, and two other.
@@ -141,6 +148,7 @@ The map contains the two room I already accessed, and two other.
 
 ##### Safe Heaven
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/safeheaven.png)
+
 This room contains a gallery with a few images. The source code also contain the following comment.
 
 ```
@@ -148,26 +156,34 @@ This room contains a gallery with a few images. The source code also contain the
 ```
 
 I launched GoBuster through ```/SafeHeaven/``` folder
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/gobuster2.png)
 
 and after awhile I receive ```/keeper``` folder.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/keeper.png)
 
 I clicked on the Escape button. Which took me to a page that shows some stairs and gave me 1m 45s to find where the image was taken.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/escape.png)
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/googleit.png)
 
 I found picture in Google 
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/lighthouse.png)
 
 When I inserted name of the lighthouse I received another key which allowed me to go further.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/key2.png)
 
 ##### Abandoned Room
 The next room on the map is the Abandoned Room. I had to provide the Keeper Key to enter it.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/abandonedroom.png)
 
 When I clicked "Go further" I got into Laura room
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/laura.png)
 
 I checked page source, it says there is a shell on that page
@@ -175,18 +191,23 @@ I checked page source, it says there is a shell on that page
 <!-- There is something called "shell" on current page maybe that'll help you to get out of here !!!-->
 ```
 which I prove using ```?shell=ls```
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/shell.png)
 
 then I checked if I can go higher in filesystem, so I try ```?shell=ls ..``` and I got result
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/shell2.png)
 
 I found that there was a another folder in ```/abandonedroom``` and in that direcrory I found two files
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/directory.png)
 
 I downloaded those files and in zip files were also two files
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/helpme_content.png)
 
 I extracted zip file and tried to open file Table.jpg which caused an error, so I looked what is a file and found that JPEG file is a zip file.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/table1.png)
 
 I extracted zip file and got another two files.
@@ -194,9 +215,11 @@ I extracted zip file and got another two files.
 
 I listened to wav file I discover that is a message in morse code
 I used a webpage to decrypt the message
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/morsecode.png)
 
 and that was a password to extract data from JPEG file, because there was used steganography to hide text file into JPEG.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/morsekey.png)
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/steghide1.png)
@@ -204,41 +227,51 @@ and that was a password to extract data from JPEG file, because there was used s
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/extracteddata.png)
 
 I read text file where was a credentials to log into ftp server
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ftp.png)
 
 I logged in to ftp server and found two files ```program``` and ```random.dic```
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ftp2.png)
 
 I downloaded those files and found that random.dic is a file with passwords to file called program. When I chose wrong password "program" said is Incorrect.
 So I wrote small Python script. That script opened file "random.dic", take one word form file and run file "program"
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/script.png)
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/scriptresult.png)
 
 When script was running I got one correct result, so I managed to know that user for another service is kidman and I needed to decode password.
 I checked the string of numbers in webpage and get result as on the pictures below.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/recognize1.png)
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/recognize2.png)
 
 and got password for user kidman
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/password.png)
 
 Then I tried to log in to server using ssh 
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ssh1.png)
 
 and obtained user flag
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/userflag.png)
 
 also found two hidden files in kidman's home directory
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/kidman1.png)
 
 Then I tried to find commands to escalate privileges to root user using ```sudo -l``` command but user "kidman" couldn't use sudo, 
 so I checked cron table using ```cat /etc/crontab``` command.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/crontab1.png)
 
 In crontab I found one command which is non-standard and is executed with root privileges.
 That was python script which anyone can change, so I wrote payload and set up listener in my machine. 
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/crontab2.png)
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/payload.png)
@@ -249,6 +282,7 @@ After approx. two minutes I gained shell with root privileges and I could read r
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rootflag.png)
 
 At the end with hint from TryHackMe I deleted ruvik account.
+
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/defeatruvik.png)
 
 
