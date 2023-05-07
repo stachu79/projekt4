@@ -93,8 +93,8 @@ Local internet access - Victim's IP Address: 10.10.137.177
 
 1.  First of all we needed to discover services at victim's machine
 
-![](https://github.com/stachu79/projekt4/blob/main/rustscan1.png)
-![](https://github.com/stachu79/projekt4/blob/main/rustscan2.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rustscan1.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rustscan2.png)
 
 2.  Detailed scan showed services on machine.
 ```
