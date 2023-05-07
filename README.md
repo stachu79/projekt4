@@ -33,12 +33,12 @@ The tests were carried out by using whitebox.
 
 #### Most severe vulnerabilites idenifies
 
-[CVE-2021-4034](https://nvd.nist.gov/vuln/detail/CVE-2021-4034)
-NIST: NVD
-Base Score: 7.8 HIGH
-Vector: CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+- Command injection - 
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/assesment.png)
+CVSS Vector: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/CR:M/IR:M/AR:M/MAV:N/MAC :L/MPR:N/MUI:N/MS:U/MC:H/MI:H/MA:H
 
-A local privilege escalation vulnerability was found on polkit's pkexec utility. The pkexec application is a setuid tool designed to allow unprivileged users to run commands as privileged users according predefined policies. The current version of pkexec doesn't handle the calling parameters count correctly and ends trying to execute environment variables as commands. An attacker can leverage this by crafting environment variables in such a way it'll induce pkexec to execute arbitrary code. When successfully executed the attack can cause a local privilege escalation given unprivileged users administrative rights on the target machine.
+- Crontab - 
+
 
 ### Risk classification
 
@@ -70,7 +70,7 @@ of severity levels.
 
 ### Change history
 
-2023-03-26 version 1.0 Final version of the report after carried tests out.
+2023-05-07 version 1.0 Final version of the report after carried tests out.
 
 ### Process of exploiting machine
 
@@ -91,12 +91,12 @@ Local internet access - Victim's IP Address: 10.10.137.177
 
 #### Technical details (Proof of concept)
 
-1.  First of all we needed to discover services at victim's machine
+First of all we needed to discover services at victim's machine
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rustscan1.png)
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rustscan2.png)
 
-2.  Detailed scan showed services on machine.
+Detailed scan showed services on machine.
 ```
 Nmap 7.93 scan initiated Sat May  6 03:53:57 2023 as: nmap -A -sC -sV -sS -oA /home/kali/Pulpit/THM/psychobreak/nmap -vvv -p 22,21,80 10.10.137.177
 Nmap scan report for 10.10.137.177
@@ -111,9 +111,8 @@ PORT   STATE SERVICE REASON         VERSION
 
 
 
-3.  We so, that http service is running on machine. We opened the page.
-    Default page:
-
+We so, that http service is running on machine. We opened the page.
+Default page:
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/webpage01.png)
 
 Nothing to see here. Next step was to check HTML code. 
@@ -126,22 +125,19 @@ This page gave us a key, which I need to go to another room.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/key1.png)
 
 In the locker room, I have another link to the map. This time it’s a php file. There was an encoded text that I needed to decode to access the map. 
-
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/lockerroom.png)
 
 To decode text I used Cyberchef and Atbash Cipher
-
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/cyberchef.png)
 
 After I provided decoded text I received another webpage called map
-
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/map.png)
 
 The map contains the two room I already accessed, and two other.
 
-Safe Heaven
+- Safe Heaven
 
-The Abandoned Room
+- The Abandoned Room
 
 ##### Safe Heaven
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/safeheaven.png)
@@ -179,28 +175,66 @@ I checked page source, it says there is a shell on that page
 <!-- There is something called "shell" on current page maybe that'll help you to get out of here !!!-->
 ```
 which I prove using ```?shell=ls```
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/shell.png)
 
+then I checked if I can go higher in filesystem, so I try ```?shell=ls ..``` and I got result
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/shell2.png)
 
+I found that there was a another folder in ```/abandonedroom``` and in that direcrory I found two files
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/directory.png)
 
+I downloaded those files and in zip files were also two files
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/helpme_content.png)
 
-
-
-
-
-
-
-
-
-
-
+I extracted zip file and tried to open file Table.jpg which caused an error, so I looked what is a file and found that JPEG file is a zip file.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/table1.png)
+I extracted zip file and got another two files.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/table2.png)
+I listened to wav file I discover that is a message in morse code
+I used a webpage to decrypt the message
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/morsecode.png)
+and that was a password to extract data from JPEG file, because there was used steganography to hide text file into JPEG.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/morsekey.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/steghide1.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/extracteddata.png)
+I read text file where was a credentials to log into ftp server
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ftp.png)
+I logged in to ftp server and found two files ```program``` and ```random.dic```
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ftp2.png)
+I downloaded those files and found that random.dic is a file with passwords to file called program. When I chose wrong password "program" said is Incorrect.
+So I wrote small Python script. That script opened file "random.dic", take one word form file and run file "program"
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/script.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/scriptresult.png)
+When script was running I got one correct result, so I managed to know that user for another service is kidman and I needed to decode password.
+I checked the string of numbers in webpage and get result as on the pictures below.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/recognize1.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/recognize2.png)
+and got password for user kidman
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/password.png)
+Then I tried to log in to server using ssh 
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ssh1.png)
+and obtained user flag
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/userflag.png)
+also found two hidden files in kidman's home directory
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/kidman1.png)
+Then I tried to find commands to escalate privileges to root user using ```sudo -l``` command but user "kidman" couldn't use sudo, 
+so I checked cron table using ```cat /etc/crontab``` command.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/crontab1.png)
+In crontab I found one command which is non-standard and is executed with root privileges.
+That was python script which anyone can change, so I wrote payload and set up listener in my machine. 
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/crontab2.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/payload.png)
+After approx. two minutes I gained shell with root privileges and I could read root flag.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/root.png)
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rootflag.png)
+At the end with hint from TryHackMe I deleted ruvik account.
+![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/defeatruvik.png)
 
 
 #### Recommendation
 
-- eliminate possibility to inject code on `/admin` page
-- consider to restrict code execution of some tools
-- eliminate possibility of use vulnerability described as [CVE-2021-4034](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-4034)
-- try no to hold passwords and/or hashes written in a files within filesystem (inside docker) and accessible to everybody.
-
+- don't leave fragile comments in HTML code
+- set up web server to avoid shell injection
+- avoid setting up crontab with higher privileges than necessary
 
 
