@@ -12,9 +12,9 @@ The machines was:
 
 [4. 0Day](https://tryhackme.com/room/0day) - IP Address 10.10.191.236
 
-1. ![Psycho Break report] (https://github.com/stachu79/projekt4/blob/main/psycho.md)
+[Psycho Break report] (https://github.com/stachu79/projekt4/blob/main/psycho.md)
 
-2. ![Musstachio report] (https://github.com/stachu79/projekt4/blob/main/musstachio.md)
+[Musstachio report] (https://github.com/stachu79/projekt4/blob/main/musstachio.md)
 
 
 
