@@ -16,6 +16,10 @@ The machines was:
 
 [2. Musstachio report](https://github.com/stachu79/projekt4/blob/main/musstachio.md)
 
+[3. Overpass report](https://github.com/stachu79/projekt4/blob/main/overpass.md)
+
+[4. Oday report](https://github.com/stachu79/projekt4/blob/main/0day.md)
+
 
 
 
