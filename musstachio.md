@@ -79,15 +79,27 @@ First of all we needed to discover services at victim's machine
 
 Detailed scan showed services on machine.
 ```
-Nmap 7.93 scan initiated Sat May  6 03:53:57 2023 as: nmap -A -sC -sV -sS -oA /home/kali/Pulpit/THM/musstachio/nmap -vvv -p 22,21,80 10.10.137.177
-Nmap scan report for 10.10.137.177
-Host is up, received echo-reply ttl 63 (0.091s latency).
-Scanned at 2023-05-06 03:53:58 EDT for 15s
+22/tcp   open  ssh     syn-ack ttl 63 OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 581b0c0ffacf05be4cc07af1f188611c (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2WTNk2XxeSH8TaknfbKriHmaAOjRnNrbq1/zkFU46DlQRZmmrUP0uXzX6o6mfrAoB5BgoFmQQMackU8IWRHxF9YABxn0vKGhCkTLquVvGtRNJjR8u3BUdJ/wW/HFBIQKfYcM+9agllshikS1j2wn28SeovZJ807kc49MVmCx3m1OyL3sJhouWCy8IKYL38LzOyRd8GEEuj6QiC+y3WCX2Zu7lKxC2AQ7lgHPBtxpAgKY+txdCCEN1bfemgZqQvWBhAQ1qRyZ1H+jr0bs3eCjTuybZTsa8aAJHV9JAWWEYFegsdFPL7n4FRMNz5Qg0BVK2HGIDre343MutQXalAx5P
+|   256 3cfce8a37e039a302c77e00a1ce452e6 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCEPDv6sOBVGEIgy/qtZRm+nk+qjGEiWPaK/TF3QBS4iLniYOJpvIGWagvcnvUvODJ0ToNWNb+rfx6FnpNPyOA0=
+|   256 9d59c6c779c554c41daae4d184710192 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGldKE9PtIBaggRavyOW10GTbDFCLUZrB14DN4/2VgyL
+80/tcp   open  http    syn-ack ttl 63 Apache httpd 2.4.18 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Mustacchio | Home
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+8765/tcp open  http    syn-ack ttl 63 nginx 1.10.3 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST
+|_http-title: Mustacchio | Login
+|_http-server-header: nginx/1.10.3 (Ubuntu)
 
-PORT   STATE SERVICE REASON         VERSION
-21/tcp open  ftp     syn-ack ttl 63 ProFTPD 1.3.5a
-22/tcp open  ssh     syn-ack ttl 63 OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
-80/tcp open  http    syn-ack ttl 63 Apache httpd 2.4.18 ((Ubuntu))
 ```
 
 
@@ -95,15 +107,16 @@ PORT   STATE SERVICE REASON         VERSION
 We so, that http service is running on machine. We opened the page.
 Default page:
 
-![](https://github.com/stachu79/projekt4/blob/main/musstachio/webpage01.png)
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/web80.png)
 
-Nothing to see here. Next step was to check HTML code. 
+Nothing to see here. Next step was to check another web server running at 8765 port. 
 
-![](https://github.com/stachu79/projekt4/blob/main/musstachio/sourcecode.png)
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/login.png)
 
-There was a comment that point to a different page.
+The standard login and password like "admin/admin" didn't work.
+So I started fuzzing directories on web server
 
-![](https://github.com/stachu79/projekt4/blob/main/musstachio/sadistroom.png)
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/ffuf.png)
 
 This page gave us a key, which I need to go to another room.
 
