@@ -192,6 +192,53 @@ and was able to log in using SSH protocol
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/barrylogin.png)
 
+After I logged in I obtained user flag.
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/userflag.png)
+
+I checked if some proccesses had a SUID (Set owner User ID up on execution) bit set up.
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/suid.png)
+
+I found out that one executive file is interesting for privilege escalation. That file was a ```live_log``` which was placed in home folder of another user called ```joe```.
+I could run this program so I did it 
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/live_logrun.png)
+
+Then I checked strings included into that progam 
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/live_logstrings.png)
+
+and found that where is a system program calling ```tail``` is used
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/live_logtail.png)
+
+but without direct path to the executable so I prepared a file in the ```/tmp``` directory called ```tail```
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/tmptail.png)
+
+where I insterted that payload: 
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/payload.png)
+
+After that I had to change ```PATH``` variable
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/exportpath.png)
+
+also I had to change permitions to ```/tmp/tail``` as executive file
+and then I escalated privileges running ```live_log``` program
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/privesc.png)
+
+and I could read the root flag
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/rootflag.png)
+
+
+
+
+
+
 
 
 
