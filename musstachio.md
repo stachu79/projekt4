@@ -170,9 +170,34 @@ and I discovered that server has that vulnerability
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/resultxxe.png)
 
-Because I descovered taht user ```barry``` is using SSH so I tried to obtain his SSH private key ```id_rsa```
+Because I descovered that user ```barry``` is using SSH so I tried to obtain his SSH private key ```id_rsa```
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa.png)
+
+I was succedded
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa2.png)
+
+I put that file in my local machine and prepared to crack it using "John the ripper"
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa3.png)
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/ssh2john.png)
+
+After that I cracked password using "John the ripper"
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa_hash.png)
+
+and was able to log in using SSH protocol
+
+![](https://github.com/stachu79/projekt4/blob/main/musstachio/barrylogin.png)
+
+
+
+
+
+
+
 
 
 
