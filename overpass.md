@@ -13,7 +13,7 @@ Przemysław Stachurski
 #### Scope and assumptions
 
 This document is a summary of work proceeded by Group od SDA. The main subject of the tests were to obtain root privileges. The test focuses on security issues leading to compromise victim's machine.
-The machine exists as a virtual machine, which can be accessed from [this link](https://tryhackme.com/room/psychobreak)
+The machine exists as a virtual machine, which can be accessed from [this link](https://tryhackme.com/room/overpass)
 The tests were carried out by using whitebox.
 
 #### Most severe vulnerabilites idenifies
@@ -57,7 +57,7 @@ of severity levels.
 
 #### Summary
 
-During the process some technics were used to get finnaly root privileges. Despite docker technology was used, root privileges has been gain as a result of misconfiguration, poorly password protection and use of documented vulnerability. Methods and technics were used:
+During the process some technics were used to get finnaly root privileges. Root privileges has been gain as a result of misconfiguration, poorly password protection and use of documented vulnerability. Methods and technics were used:
 -port scanning
 -webapp attacks
 -code injection
@@ -74,8 +74,8 @@ Local internet access - Victim's IP Address: 10.10.42.81
 
 First of all we needed to discover services at victim's machine
 
-![](https://github.com/stachu79/projekt4/blob/main/overpass/rustscan1.png)
-![](https://github.com/stachu79/projekt4/blob/main/overpass/rustscan2.png)
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/rustscan1.png)
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/nmap.png)
 
 
 

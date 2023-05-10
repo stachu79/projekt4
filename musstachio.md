@@ -57,10 +57,11 @@ of severity levels.
 
 #### Summary
 
-During the process some technics were used to get finnaly root privileges. Despite docker technology was used, root privileges has been gain as a result of misconfiguration, poorly password protection and use of documented vulnerability. Methods and technics were used:
+During the process some technics were used to get finnaly root privileges. Root privileges has been gain as a result of misconfiguration, poorly password protection and use of documented vulnerability. Methods and technics were used:
 -port scanning
 -webapp attacks
 -code injection
+-XXE injection
 -pivoting
 -exploitation
 -password cracking
@@ -234,27 +235,8 @@ and I could read the root flag
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/rootflag.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Recommendation
 
 - don't leave fragile comments in HTML code
-- set up web server to avoid shell injection
-- avoid setting up crontab with higher privileges than necessary
+- set up web server to avoid XXE injection
+- in custom executable file use direct path to system binaries to avoid replacing by attacker.
