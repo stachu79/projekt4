@@ -77,6 +77,60 @@ First of all we needed to discover services at victim's machine
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/rustscan1.png)
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/nmap.png)
 
+I checked web page and got 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/web80.png)
+
+I checked soure code of that page and found one directory called ```/downloads```
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/source1.png)
+
+
+I started to enumerate directories to find another folders in webserver using ```dirb``` program
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/dirb.png)
+
+I got login page so I checked source of that page
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/overadmin1.png)
+
+Using ```Developer tools``` from web browser I got the all files from login page. 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/devtools1.png)
+
+I checked all files and in ```login.js``` script I found that variable called ```statusOrCookie``` could be changed for random value to log into the web page
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/javascript1.png)
+
+I changed that value 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/cookieset.png)
+
+and after reload of webpage I was logged in without putting right credentials
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/overadmin2.png)
+
+I copied the id_rsa key wich was put into the web page
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/id_rsa1.png)
+
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/id_rsa2.png)
+
+Then I prepared the ```id_rsa``` file for ```John the ripper```  to extract password
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/id_rsa_hash.png)
+
+Finally I got user password
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/id_rsa_john.png)
+
+I was able to log in using SSH
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/login.png)
+
+I obtained user flag
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/userflag.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
