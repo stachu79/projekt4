@@ -1,4 +1,4 @@
-## Pentesting machine Psycho Break
+## Pentesting machine 0day
 
 ### Date: 06.05.2023 - 07.05.2023
 ### Location

@@ -1,4 +1,4 @@
-## Pentesting machine Psycho Break
+## Pentesting machine Overpass
 
 ### Date: 06.05.2023 - 07.05.2023
 ### Location
@@ -130,23 +130,53 @@ I obtained user flag
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/userflag.png)
 
+I downloaded to the victim from my machine program called ```linpeas``` to enumerate all vulnerabilities and run it
 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/linpeas.png)
 
+After I analyzed the result I found that one program is executed by ```root``` user every minute
+ 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/linpeasdetails.png)
 
+and the ```/etc/hosts``` is writeable for everyone
 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/hosts_write.png)
 
+First I read the ```/etc/hosts``` file
 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/hosts1.png)
 
+Bacause cron job was reaching for a file to ```overpass.thm``` web location I changed the line in that file
 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/hosts4.png)
 
+After that I prepared folders like in the cron job
 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/folders.png)
 
+and the ```buildscript.sh``` file to get root flag
 
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/payload.png)
+
+Then I create file in ```/tmp``` location according the payload and set right permitions to that file
+
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/rootflag1.png)
+
+I started the http server
+
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/pythonserver.png)
+
+and after one minute I got root flag in ```/tmp/flag```
+
+![](https://github.com/stachu79/projekt4/blob/main/Overpass/rootflag2.png)
+
+without privilege escalation.
 
 
 
 #### Recommendation
 
 - don't leave fragile comments in HTML code
-- set up web server to avoid shell injection
-- avoid setting up crontab with higher privileges than necessary
+- don't put fragile data in web page
+- set right permitions to the system files
+- don't use cron jobs with higher permitions than necessary
