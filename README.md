@@ -10,7 +10,6 @@ The machines was:
 
 [3. Overpass](https://tryhackme.com/room/overpass) - IP Address 10.10.42.81
 
-[4. 0Day](https://tryhackme.com/room/0day) - IP Address 10.10.191.236
 
 [1. Psycho Break report](https://github.com/stachu79/projekt4/blob/main/psycho.md)
 
@@ -18,7 +17,6 @@ The machines was:
 
 [3. Overpass report](https://github.com/stachu79/projekt4/blob/main/overpass.md)
 
-[4. Oday report](https://github.com/stachu79/projekt4/blob/main/0day.md)
 
 
 
