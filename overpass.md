@@ -18,7 +18,9 @@ The tests were carried out by using whitebox.
 
 #### Most severe vulnerabilites idenifies
 
-
+- Cookie poisoning
+- Base Score 9.8
+Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
 
 
 ### Risk classification
@@ -58,13 +60,21 @@ of severity levels.
 #### Summary
 
 During the process some technics were used to get finnaly root privileges. Root privileges has been gain as a result of misconfiguration, poorly password protection and use of documented vulnerability. Methods and technics were used:
+
 -port scanning
+
 -webapp attacks
+
 -code injection
--pivoting
+
+-cookie poisoning
+
 -exploitation
+
 -password cracking
+
 -brute forcing
+
 
 #### Prerequisites for the attack
 
@@ -178,5 +188,6 @@ without privilege escalation.
 
 - don't leave fragile comments in HTML code
 - don't put fragile data in web page
+- don't use exact cookie value to check login
 - set right permitions to the system files
 - don't use cron jobs with higher permitions than necessary
