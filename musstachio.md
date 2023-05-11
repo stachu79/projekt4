@@ -178,7 +178,7 @@ and I discovered that server had that vulnerability.
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/resultxxe.png)
 
-Because I descovered that user ```barry``` is using SSH so I tried to obtain his SSH private key ```id_rsa```
+Because I discovered that user ```barry``` is using SSH so I tried to obtain his SSH private key ```id_rsa```
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa.png)
 
