@@ -245,5 +245,6 @@ and I could read the root flag
 #### Recommendation
 
 - don't leave fragile comments in HTML code
+- disable directory listing in web server
 - set up web server to avoid XXE injection
 - in custom executable file use direct path to system binaries to avoid replacing by attacker.
