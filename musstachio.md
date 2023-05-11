@@ -105,7 +105,7 @@ Detailed scan showed services on machine.
 
 
 
-We so, that http service is running on machine. We opened the page.
+I saw, that http service is running on machine. I opened the page.
 Default page:
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/web80.png)
@@ -119,19 +119,19 @@ So I started fuzzing directories on web server
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/ffuf.png)
 
-After awhile I got directories on server. I lloked into that directories and received folder ```/custom``` where were two folders ```/css``` and ```/js```
+After a while I got directories on server. I looked into that directories and received folder ```/custom``` where were two folders ```/css``` and ```/js```
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/custom1.png)
 
-In folder ```/custom/js``` I found interesting file called ```users.bak```
+In folder ```/custom/js``` I found an interesting file called ```users.bak```
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/customjs1.png)
 
-I downloaded that file into my local machine and checked what was a file type
+I downloaded that file into my local machine and checked what type of a file it was
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/users.png)
 
-I found out that was a sqlite file. I managed to open file and there was a one table called ```users```
+I found out that was a sqlite file. I managed to open the file and there was a one table called ```users```
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/sqlite1.png)
 
@@ -147,19 +147,19 @@ I logged into the admin web server at port 8765
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/login.png)
 
-and I got the web page where i Could post a comment
+and I got the web page where I could post a comment
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/admin1.png)
 
-I checked source of that page and got another interesting location ```/auth/dontforget.bak``` and information tha user called ```Barry``` is using SSH.
+I checked the source of that page and got another interesting location ```/auth/dontforget.bak``` and information that user called ```Barry``` is using SSH.
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/source1.png)
 
-So I downloaded that file and checked what is a file format.
+So I downloaded that file and checked what type of a file it was.
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/filedont.png)
 
-I opened that file and got an information that if we want put comment to the webpage we need to use XML format and desired structure for XML.
+I opened that file and got information that if we want to put comment to the webpage we need to use XML format and desired structure for XML.
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/xml.png)
 
@@ -167,7 +167,7 @@ I checked if server is protected from XXE (XML external entity) injection
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/testxxe.png)
 
-and I discovered that server has that vulnerability
+and I discovered that server had that vulnerability.
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/resultxxe.png)
 
@@ -175,7 +175,7 @@ Because I descovered that user ```barry``` is using SSH so I tried to obtain his
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa.png)
 
-I was succedded
+I succedded
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa2.png)
 
@@ -185,7 +185,7 @@ I put that file in my local machine and prepared to crack it using "John the rip
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/ssh2john.png)
 
-After that I cracked password using "John the ripper"
+After that I cracked password using "John the Ripper"
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa_hash.png)
 
@@ -210,7 +210,7 @@ Then I checked strings included into that progam
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/live_logstrings.png)
 
-and found that where is a system program calling ```tail``` is used
+and found that where is a system program called ```tail``` was used
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/live_logtail.png)
 
