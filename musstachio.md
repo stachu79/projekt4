@@ -58,14 +58,21 @@ of severity levels.
 #### Summary
 
 During the process some technics were used to get finnaly root privileges. Root privileges has been gain as a result of misconfiguration, poorly password protection and use of documented vulnerability. Methods and technics were used:
+
 -port scanning
+
 -webapp attacks
+
 -code injection
+
 -XXE injection
--pivoting
+
 -exploitation
+
 -password cracking
+
 -brute forcing
+
 
 #### Prerequisites for the attack
 
