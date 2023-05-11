@@ -171,19 +171,19 @@ When I clicked "Go further" I got into Laura's room
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/laura.png)
 
-I checked page source, it says there is a shell on that page
+I checked the page source, it said there is a shell on that page
 ```
 <!-- There is something called "shell" on current page maybe that'll help you to get out of here !!!-->
 ```
-which I prove using ```?shell=ls```
+which I provided using ```?shell=ls```
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/shell.png)
 
-then I checked if I can go higher in filesystem, so I try ```?shell=ls ..``` and I got result
+then I checked if I can go higher in filesystem, so I tried ```?shell=ls ..``` and I got the result
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/shell2.png)
 
-I found that there was a another folder in ```/abandonedroom``` and in that direcrory I found two files
+I found that there was another folder in ```/abandonedroom``` and in that direcrory I found two files
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/directory.png)
 
@@ -191,19 +191,19 @@ I downloaded those files and in zip files were also two files
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/helpme_content.png)
 
-I extracted zip file and tried to open file Table.jpg which caused an error, so I looked what is a file and found that JPEG file is a zip file.
+I extracted a zip file and tried to open a file "Table.jpg" which caused an error, so I checked what kind of a file it was and found that JPEG file is a zip file.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/table1.png)
 
-I extracted zip file and got another two files.
+I extracted the zip file and got another two files.
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/table2.png)
 
-I listened to wav file I discover that is a message in morse code
+I listened to the "wav" file I discovered that was a message in a morse code
 I used a webpage to decrypt the message
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/morsecode.png)
 
-and that was a password to extract data from JPEG file, because there was used steganography to hide text file into JPEG.
+and that was a password to extract data from JPEG file, because there was steganography used to hide text file into JPEG.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/morsekey.png)
 
@@ -211,7 +211,7 @@ and that was a password to extract data from JPEG file, because there was used s
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/extracteddata.png)
 
-I read text file where was a credentials to log into ftp server
+I read a text file where the credentials to log into ftp server were.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ftp.png)
 
@@ -219,42 +219,42 @@ I logged in to ftp server and found two files ```program``` and ```random.dic```
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ftp2.png)
 
-I downloaded those files and found that random.dic is a file with passwords to file called program. When I chose wrong password "program" said is Incorrect.
-So I wrote small Python script. That script opened file "random.dic", take one word form file and run file "program"
+I downloaded those files and found that random.dic is a file with passwords to file called "program". When I chose the wrong password, "program" said it was Incorrect.
+So I wrote a small script in Python. That script opened a file "random.dic". It takes one word from the file and runs the "program" file.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/script.png)
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/scriptresult.png)
 
-When script was running I got one correct result, so I managed to know that user for another service is kidman and I needed to decode password.
+When the script was running I got one correct result, so I managed to find out that the user of another service is "kidman" and I needed to decode the password.
 I checked the string of numbers in webpage and get result as on the pictures below.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/recognize1.png)
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/recognize2.png)
 
-and got password for user kidman
+and got the password for user "kidman"
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/password.png)
 
-Then I tried to log in to server using ssh 
+Then I tried to log in to server using SSH 
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/ssh1.png)
 
-and obtained user flag
+and obtained a user flag
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/userflag.png)
 
-also found two hidden files in kidman's home directory
+also I found two hidden files in "kidman's" home directory
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/kidman1.png)
 
-Then I tried to find commands to escalate privileges to root user using ```sudo -l``` command but user "kidman" couldn't use sudo, 
+Then I tried to find commands to escalate privileges to a "root" user using ```sudo -l``` command but user "kidman" couldn't use sudo, 
 so I checked cron table using ```cat /etc/crontab``` command.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/crontab1.png)
 
-In crontab I found one command which is non-standard and is executed with root privileges.
+In "crontab" I found one command which is non-standard and is executed with root privileges.
 That was python script which anyone can change, so I wrote payload and set up listener in my machine. 
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/crontab2.png)
@@ -266,7 +266,7 @@ After approx. two minutes I gained shell with root privileges and I could read r
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rootflag.png)
 
-At the end with hint from TryHackMe I deleted ruvik account.
+At the end with a hint from TryHackMe I deleted ruvik account.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/defeatruvik.png)
 
