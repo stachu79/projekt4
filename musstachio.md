@@ -17,7 +17,9 @@ The machine exists as a virtual machine, which can be accessed from [this link](
 The tests were carried out by using whitebox.
 
 #### Most severe vulnerabilites idenifies
-- XXE injection CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
+- XXE injection 
+CVSS Base Score 6.8
+CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L/E:P/RC:C
 
 ### Risk classification
 
