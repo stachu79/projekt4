@@ -76,7 +76,7 @@ Local internet access - Victim's IP Address: 10.10.137.177
 
 #### Technical details (Proof of concept)
 
-First of all we needed to discover services at victim's machine
+First of all we needed to discover services at the victim's machine
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rustscan1.png)
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/rustscan2.png)
@@ -96,7 +96,7 @@ PORT   STATE SERVICE REASON         VERSION
 
 
 
-We so, that http service is running on machine. We opened the page.
+I noticed, that the http service is running on the machine. I opened the page.
 Default page:
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/webpage01.png)
@@ -105,27 +105,27 @@ Nothing to see here. Next step was to check HTML code.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/sourcecode.png)
 
-There was a comment that point to a different page.
+There was a comment that pointed to a different page.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/sadistroom.png)
 
-This page gave us a key, which I need to go to another room.
+This page gave us a key, which I need to proceed to another room.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/key1.png)
 
-In the locker room, I have another link to the map. This time it’s a php file. There was an encoded text that I needed to decode to access the map. 
+In the locker room, I had another link to the map. This time it was a php file. There was an encoded text that I needed to decode in order to access the map. 
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/lockerroom.png)
 
-To decode text I used Cyberchef and Atbash Cipher
+In order to decode the text Cyberchef and Atbash Cipher were used.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/cyberchef.png)
 
-After I provided decoded text I received another webpage called map
+After I provided the decoded text I received another webpage which was called "map"
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/map.png)
 
-The map contains the two room I already accessed, and two other.
+The map contained the two rooms which I had already accessed and another two .
 
 - Safe Heaven
 
@@ -134,7 +134,7 @@ The map contains the two room I already accessed, and two other.
 ##### Safe Heaven
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/safeheaven.png)
 
-This room contains a gallery with a few images. The source code also contain the following comment.
+This room contained a gallery with a few images. The source code also contained the following comment.
 
 ```
 <!-- I think I'm having a terrible nightmare. Search through me and find it ... -->
@@ -144,11 +144,11 @@ I launched GoBuster through ```/SafeHeaven/``` folder
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/gobuster2.png)
 
-and after awhile I receive ```/keeper``` folder.
+and after a while I received ```/keeper``` folder.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/keeper.png)
 
-I clicked on the Escape button. Which took me to a page that shows some stairs and gave me 1m 45s to find where the image was taken.
+I clicked the Escape button which took me to a page that showed some stairs and gave me 1m 45s to find where the image had been taken.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/escape.png)
 
@@ -158,7 +158,7 @@ I found picture in Google
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/lighthouse.png)
 
-When I inserted name of the lighthouse I received another key which allowed me to go further.
+When I entered the name of the lighthouse I received another key which allowed me to go further.
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/key2.png)
 
@@ -167,7 +167,7 @@ The next room on the map is the Abandoned Room. I had to provide the Keeper Key 
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/abandonedroom.png)
 
-When I clicked "Go further" I got into Laura room
+When I clicked "Go further" I got into Laura's room
 
 ![](https://github.com/stachu79/projekt4/blob/main/PsychoBreak/laura.png)
 
