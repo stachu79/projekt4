@@ -80,7 +80,7 @@ First of all we needed to discover services at victim's machine
 I checked web page and got 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/web80.png)
 
-I checked soure code of that page and found one directory called ```/downloads```
+I checked source code of that page and found one directory called ```/downloads```
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/source1.png)
 
 
@@ -108,17 +108,17 @@ and after reload of webpage I was logged in without putting right credentials
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/overadmin2.png)
 
-I copied the id_rsa key wich was put into the web page
+I copied the id_rsa key which was put into the web page
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/id_rsa1.png)
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/id_rsa2.png)
 
-Then I prepared the ```id_rsa``` file for ```John the ripper```  to extract password
+Then I prepared the ```id_rsa``` file for ```John the Ripper```  to extract password
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/id_rsa_hash.png)
 
-Finally I got user password
+Finally I got the user password
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/id_rsa_john.png)
 
@@ -130,7 +130,7 @@ I obtained user flag
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/userflag.png)
 
-I downloaded to the victim from my machine program called ```linpeas``` to enumerate all vulnerabilities and run it
+I downloaded a program called ```linpeas``` to the victim from my machine to enumerate all vulnerabilities and run it
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/linpeas.png)
 
@@ -158,7 +158,7 @@ and the ```buildscript.sh``` file to get root flag
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/payload.png)
 
-Then I create file in ```/tmp``` location according the payload and set right permitions to that file
+Then I created file in ```/tmp``` location according to the payload and set right permitions to that file
 
 ![](https://github.com/stachu79/projekt4/blob/main/Overpass/rootflag1.png)
 
