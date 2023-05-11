@@ -186,7 +186,7 @@ I succedded
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa2.png)
 
-I put that file in my local machine and prepared to crack it using "John the ripper"
+I put that file in my local machine and prepared to crack it using "John the Ripper"
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/id_rsa3.png)
 
@@ -225,7 +225,7 @@ but without direct path to the executable so I prepared a file in the ```/tmp```
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/tmptail.png)
 
-where I insterted that payload: 
+where I inserted that payload: 
 
 ![](https://github.com/stachu79/projekt4/blob/main/musstachio/payload.png)
 
